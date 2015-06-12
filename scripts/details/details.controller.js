@@ -48,7 +48,7 @@ function DetailsController($routeParams, $http, productsData, productDataFactory
           }
         }, function (reason) {
           console.log(reason);
-        })
+        });
 
       })
       .error(function (data, status, headers) {

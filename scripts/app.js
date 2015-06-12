@@ -20,15 +20,20 @@ angular
         controller: 'DetailsController',
         controllerAs: 'vm',
         resolve: {
-          productsData: function (productDataFactory) {
-            return productDataFactory.getProducts();
+          productsData: function ($route, productDataFactory) {
+            return productDataFactory.getProduct($route.current.params.productId);
           }
         }
       })
       .when('/add-product', {
         templateUrl: 'scripts/product/product.view.html',
         controller: 'ProductController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        resolve: {
+          productsData: function ($route, productDataFactory) {
+            return productDataFactory.getProducts();
+          }
+        }
       })
       .otherwise({
         redirectTo: '/products'
@@ -63,6 +68,10 @@ angular
 
       for (var i=0;i<products.length;i++) {
         if (products[i].id==comment.id) {
+          if (!(angular.isDefined(products[i].comments) && angular.isArray(products[i].comments))) {
+            products[i].comments = [];
+          }
+
           products[i].comments.push(comment);
         }
       }

@@ -1,10 +1,16 @@
-<div class="container">
+<a href="#/products" class="btn btn-default pull-left">Back</a>
+<br/>
+<br/>
+<form action="" name="ProductForm" ng-submit="vm.submitForm()" class="form form-horizontal">
+  <label for="id">Id: </label><input class="form-control" id="id" type="number" name="id" ng-model="vm.formData.id" placeholder="Id(*)" required/>
   <br/>
-  <div ng-repeat="product in vm.products" class="panel">
-    <a href="#/product/{{product.id}}">
-      <strong>{{product.name}}</strong>
-    </a>
-  </div>
-</div>
-
-<a href="#/add-product" class="btn btn-primary">Add product</a>
+  <br/>
+  <label for="name">Name: </label><input class="form-control" id="name" type="text" name="name" ng-model="vm.formData.name" placeholder="Name(*)" required/>
+  <br/>
+  <br/>
+  <label for="price">Price($): </label><input class="form-control" id="price" type="text" name="price" ng-model="vm.formData.price" placeholder="Price(*)" required/>
+  <br/>
+  <br/>
+  <input type="submit" value="Submit" class="btn btn-primary"/>
+  <input type="reset" value="Reset" class="btn btn-warning"/>
+</form>
