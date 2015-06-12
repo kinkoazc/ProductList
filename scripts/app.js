@@ -24,7 +24,7 @@
           controller: 'DetailsController',
           controllerAs: 'vm',
           resolve: {
-            productsData: function ($location, $route, productDataFactory) {
+            productsData:['$location', '$route', 'productDataFactory', function ($location, $route, productDataFactory) {
               return productDataFactory.getProduct($route.current.params.productId).then(
                 function(data) {
                   return data;
@@ -33,7 +33,7 @@
                   $location.path('#/products');
                 }
               );
-            }
+            }]
           }
         })
         .when('/add-product', {
@@ -41,9 +41,9 @@
           controller: 'ProductController',
           controllerAs: 'vm',
           resolve: {
-            productsData: function ($route, productDataFactory) {
+            productsData:['$route', 'productDataFactory', function ($route, productDataFactory) {
               return productDataFactory.getProducts();
-            }
+            }]
           }
         })
         .otherwise({
