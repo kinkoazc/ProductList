@@ -1,0 +1,27 @@
+<a href="#/products" class="btn btn-default pull-left">Back</a>
+<br/>
+<br/>
+<div class="panel" style="text-align:center">
+  <p><strong>Id: </strong>{{vm.product.id}}</p>
+  <p><strong>Name: </strong>{{vm.product.name}}</p>
+  <p><strong>Price: </strong>{{vm.product.price}}</p>
+</div>
+<br/>
+
+<p><strong>Comments:</strong></p>
+<div ng-repeat="comment in vm.product.comments">
+  <strong>{{comment.user}}</strong> - {{comment.message}}
+</div>
+
+<br/>
+<br/>
+<form action="" name="CommentForm" ng-submit="vm.submitForm()" class="form form-horizontal">
+  <label for="user">User: </label><input class="form-control" id="user" type="text" name="user" ng-model="vm.formData.user" placeholder="Username(*)" required/>
+  <br/>
+  <br/>
+  <label for="message">Message: </label><textarea class="form-control" id="message" name="message" ng-model="vm.formData.message" placeholder="Comment"></textarea>
+  <br/>
+  <br/>
+  <input type="submit" value="Submit" class="btn btn-primary"/>
+  <input type="reset" value="Reset" class="btn btn-warning"/>
+</form>

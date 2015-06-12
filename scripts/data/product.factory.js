@@ -1,11 +1,11 @@
 angular
   .module('app')
-  .factory('productData', productData);
+  .factory('productDataFactory', productDataFactory);
 
-productData.$inject = ['$http', '$q'];
+productDataFactory.$inject = ['$http', '$q'];
 
 /* @ngInject */
-function productData($http, $q) {
+function productDataFactory($http, $q) {
   return {
     getProducts: getProducts
   };
