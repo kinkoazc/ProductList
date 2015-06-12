@@ -15,7 +15,7 @@
 
 <br/>
 <br/>
-<form action="" name="CommentForm" ng-submit="vm.submitForm()" class="form form-horizontal">
+<form action="" name="CommentForm" ng-submit="vm.submitForm($event)" class="form form-horizontal">
   <label for="user">User: </label><input class="form-control" id="user" type="text" name="user" ng-model="vm.formData.user" placeholder="Username(*)" required/>
   <br/>
   <br/>

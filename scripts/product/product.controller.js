@@ -25,7 +25,9 @@ function ProductController($http, productsData, productDataFactory) {
     vm.products = productsData;
   }
 
-  function submitForm() {
+  function submitForm(e) {
+
+    e.preventDefault();
 
     if (angular.isDefined(vm.formData.id) && angular.isNumber(vm.formData.id)) {
 
@@ -57,7 +59,7 @@ function ProductController($http, productsData, productDataFactory) {
       vm.formData = {};
 
     } else {
-      alert('Please enter an id');
+      alert('Please enter a valid id.');
     }
 
     return false;

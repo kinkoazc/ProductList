@@ -32,7 +32,9 @@ function DetailsController($routeParams, $http, productsData, productDataFactory
   }
 
 
-  function submitForm() {
+  function submitForm(e) {
+
+    e.preventDefault();
 
     $http.post('/comment',{id: vm.product.id, user: vm.formData.user, message: vm.formData.message})
       .success(function(data, status, headers) {

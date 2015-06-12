@@ -1,16 +1,16 @@
 <a href="#/products" class="btn btn-default pull-left">Back</a>
 <br/>
 <br/>
-<form action="" name="ProductForm" ng-submit="vm.submitForm()" class="form form-horizontal">
+<form action="" name="ProductForm" ng-submit="vm.submitForm($event)" class="form form-horizontal" novalidate>
   <label for="id">Id: </label><input class="form-control" id="id" type="number" name="id" ng-model="vm.formData.id" placeholder="Id(*)" required/>
   <br/>
   <br/>
   <label for="name">Name: </label><input class="form-control" id="name" type="text" name="name" ng-model="vm.formData.name" placeholder="Name(*)" required/>
   <br/>
   <br/>
-  <label for="price">Price($): </label><input class="form-control" id="price" type="text" name="price" ng-model="vm.formData.price" placeholder="Price(*)" required/>
+  <label for="price">Price($): </label><input class="form-control" id="price" type="number" name="price" ng-pattern="/\d+.?\d*/" ng-model="vm.formData.price" placeholder="Price(*)" required/>
   <br/>
   <br/>
-  <input type="submit" value="Submit" class="btn btn-primary"/>
+  <input type="submit" value="Submit" class="btn btn-primary" ng-disabled="ProductForm.$invalid"/>
   <input type="reset" value="Reset" class="btn btn-warning"/>
 </form>
